@@ -7,11 +7,11 @@
 이 문서는 [backend 저장소의 기존 README](https://github.com/check-task/backend/blob/develop/README.md)를 옮긴 문서입니다. 아래 기술 스택, 실행 방법, API 설명은 기존 Node.js 백엔드 기준이며, NestJS 마이그레이션 완료를 의미하지 않습니다.
 
 ## Team
-|<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/bb166557-3a96-4715-b7e9-eab379b29541" />|<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/38c7fdaa-2ca7-4421-a34c-7bbc93ce0ba1" />|<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/5a245a4d-3e5b-4c24-95d8-b74fdacb6ef4" />|<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/fd09a935-a8ee-40eb-87ea-c2170c753e14" />|<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/a31dffc4-7508-45ee-8842-e15b6e9ed317" />| <img width="250" height="250" alt="KakaoTalk_Photo_2026-10-04-16-43-41" src="https://github.com/user-attachments/assets/b355519c-f61b-43a3-9566-de0a74908fe4" /> |
-|:-:|:-:|:-:|:-:|:-:| :-:|
-| [제이엠/김정민](https://github.com/JungMINI-developer) | [소리/오소윤](https://github.com/soyun0318) | [제로/정규은](https://github.com/jeongkyueun) | [우변/양우영](https://github.com/yangwooyoung123) | [페이커/선준우](https://github.com/junu999) | [송월/김민지](https://github.com/songwol38) |
-| **Back-End** | **Back-End** | **Back-End** | **Back-End** | **Back-End** | **Back-End (팀장)** |
-| 백엔드 총괄<br/>초기 세팅<br/>알림 기능 구현 | 과제 관련 기능 구현 | 팀 과제 세부 기능 구현 | 로그인 기능 구현<br/>배포 및 운영 환경 구성 | 유저 관련 기능 구현 | 팀 협업 자료 기능 구현 및 PM |
+| <img width="250" height="250" alt="KakaoTalk_Photo_2026-10-04-16-43-41" src="https://github.com/user-attachments/assets/b355519c-f61b-43a3-9566-de0a74908fe4" /> | <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/bb166557-3a96-4715-b7e9-eab379b29541" /> | <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/38c7fdaa-2ca7-4421-a34c-7bbc93ce0ba1" /> | <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/5a245a4d-3e5b-4c24-95d8-b74fdacb6ef4" /> | <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/fd09a935-a8ee-40eb-87ea-c2170c753e14" /> | <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/a31dffc4-7508-45ee-8842-e15b6e9ed317" /> |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| [송월/김민지](https://github.com/songwol38) | [제이엠/김정민](https://github.com/JungMINI-developer) | [소리/오소윤](https://github.com/soyun0318) | [제로/정규은](https://github.com/jeongkyueun) | [우변/양우영](https://github.com/yangwooyoung123) | [페이커/선준우](https://github.com/junu999) |
+| **Back-End (팀장) / PM** | **Back-End** | **Back-End** | **Back-End** | **Back-End** | **Back-End** |
+| 팀 협업 자료 기능 구현 및 PM | 백엔드 총괄<br/>초기 세팅<br/>알림 기능 구현 | 과제 관련 기능 구현 | 팀 과제 세부 기능 구현 | 로그인 기능 구현<br/>배포 및 운영 환경 구성 | 유저 관련 기능 구현 |
 
 ## ⚙️ 시스템 구성도
 <img width="1639" height="621" alt="Group 3" src="https://github.com/user-attachments/assets/48898d5b-61b2-4761-9a12-b83c5d44e92c" />
@@ -139,34 +139,33 @@ npm start
 
 ## 📍 Back-End GitHub 협업
 ### ▷ Branch 전략
-| 브랜치명 | 설명 | 명명 규칙 예시 |
+| 브랜치명 | 설명 | 예시 |
 | --- | --- | --- |
-| main | 실제 배포되어 운영되는 서버의 코드 | main |
-| develop | 다음 배포를 위해 개발된 기능들이 통합되는 브랜치 | develop |
-| feature | 단위 기능 개발을 위한 브랜치 develop에서 분기 | feature/issue-번호 |
-- 브랜치명: ```커밋유형/이슈번호```
+| main | 배포, 직접 push 금지 | main |
+| develop | 개발 통합, 직접 push 금지 | develop |
+| {커밋 유형}/{작업명} | develop에서 분기, kebab-case | feat/auth-domain |
 
-### ▷ 이슈 유형
-| 브랜치명 | 설명 |
+### ▷ 커밋 유형
+| 유형 | 설명 |
 | --- | --- |
-| Feat | 새로운 기능 추가 |
-| Fix | 오류/버그 수정 |
-| Refactor | 내부 구조 개선 | 
+| feat / fix | 새 기능 / 버그 수정 |
+| refactor / docs | 구조 개선 / 문서 수정 |
+| test / chore | 테스트 / 빌드·설정 |
 
-### ▷ push 방식
-1. issue 생성
-   - 작업 전, GitHub Issue 탭에서 할 일을 등록
-   - 작업할 내용 작성 후 Assignees(담당자) 지정
-2. Branch 생성
-   - `develop`으로 병합되는 작업 `Branch` 생성
-3. 작업 및 Push
-   - 기능 구현 후 약속된 컨벤션에 맞춰 커밋 진행
-   - 작업 브랜치를 원격 저장소에 올림
-4. Pull Request(PR)
-   - GitHub에서 작업 `Branch` -> `develop` 브랜치로 PR을 생성
-   - PR 템플릿에 맞춰 작업 내용, 변경 사항, 결과 등을 작성
-   - Reviewer(팀원)을 지정하여 코드 리뷰 요청
-5. Review & Merge
+### ▷ 협업 흐름
+1. 이슈 생성
+   - 템플릿 사용, 제목 예: `[Feat] 과제 등록`
+2. 브랜치 생성
+   - 작업 브랜치 분기
+3. 커밋 및 Push
+   - `{type} : {요약}` (한국어 명사형), 커밋당 한 목적
+   - 커밋 전 `npm run format`, `npm run lint` 실행
+4. PR 생성
+   - 템플릿: 제목 `[{Type}/#{이슈 번호}] {요약}`, 본문 `Closes #{이슈 번호}`
+5. 리뷰 및 머지
+   - 승인 1명 이상, 작업 → develop: **Squash merge**
+   - develop → main: **Merge commit**, 제목 `[Release] {버전 또는 날짜}`
+   - 머지 후 작업 브랜치 삭제
 <br>
 
 ## ⚙️ API 설계
